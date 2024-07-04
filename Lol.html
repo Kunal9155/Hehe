@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body {
+  background-color: #533805;
+  height: 100vh;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  font-family: Verdana;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+p {
+  width: 175px;
+  text-align: center;
+  margin: 5px;
+  font-size:0.75em;
+}
+
+#card {
+  width: fit-content;
+  border: 1px solid;
+  padding: 5px;
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  padding-bottom:15px;
+  border-radius: 20px;
+}
+
+#submit {
+  width: 100%;
+}
+
+#countLabel {
+  font-size: 3em;
+  text-align: center;
+  margin: auto;
+}
+
+#buttonBox {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  width: 75px;
+  height: 30px;
+  margin: 2px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: thin;  
+}
+
+#decreaseBtn {
+  border-radius: 5px 5px 0 5px;
+} 
+
+#increaseBtn {
+  border-radius: 5px 5px 5px 0;
+} 
+
+#resetBtn {
+  border-radius: 5px 0 5px 5px;
+} 
+
+#randomBtn {
+  border-radius: 0 5px 5px 5px;
+} 
+
+#submit {
+  margin: 0;
+}
+</style>
+</head>
+<body>
+    <div id="box">
+        <div id="card">
+          <p>JGJ | JSM | JBB | JLG</p>
+          <label id="countLabel">0</label>
+          <div id="buttonBox">
+            <button id="decreaseBtn" class="btn">-</button>
+            <button id="increaseBtn" class="btn">+</button>
+            <button id="resetBtn" class="btn">0</button>
+            <button id="randomBtn" class="btn">
+              <svg xmlns="http://www.w3.org/2000/svg" 
+                   height="20px" 
+                   viewBox="0 -1100 960 960" 
+                   width="20px" 
+                   fill="#fff">
+                <path d="M560-160v-80h104L537-367l57-57 126 126v-102h80v240H560Zm-344 0-56-56 504-504H560v-80h240v240h-80v-104L216-160Zm151-377L160-744l56-56 207 207-56 56Z"/>
+              </svg>
+            </button>
+          </div>
+        
+        </div>
+        <br />
+        <p id="resultAns"></p>
+        </div>
+</body>
+<script>
+const decreaseBtn = document.getElementById("decreaseBtn");
+const increaseBtn = document.getElementById("increaseBtn");
+const resetBtn = document.getElementById("resetBtn");
+const randomBtn = document.getElementById("randomBtn");
+const countLabel = document.getElementById("countLabel");
+const resultAns = document.getElementById("resultAns")
+let count = 0;
+
+decreaseBtn.onclick = function() {
+  count--;
+  countLabel.textContent = count;
+}
+
+increaseBtn.onclick = function() {
+  count++;
+  countLabel.textContent = count;
+  if(count == 108){
+    resultAns.textContent = "Good, Completed !";
+    count =0;
+  }
+ 
+}
+
+resetBtn.onclick = function() {
+  count = 0;
+  countLabel.textContent = count;
+}
+
+randomBtn.onclick = function() {
+  count = Math.floor(Math.random() * 100);
+  countLabel.textContent = count;
+}
+
+mySubmit.onclick = function() {
+if (count == 65) {
+  resultAns.textContent = "You did it!";
+}
+else {
+  resultAns.textContent = "sorry, wrong number. Try again?";
+	}}	 
+
+</script>
+</html>
